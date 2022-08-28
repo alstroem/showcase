@@ -2,6 +2,7 @@
 gradleplugin = "7.3.0-rc01"
 kotlin = "1.7.10"
 apollo = "3.5.0"
+hilt = "2.43.2"
 
 android-core = "1.8.0"
 android-lifecycle = "2.5.1"
@@ -33,6 +34,9 @@ junit = { module = "junit:junit", version.ref = "junit" }
 
 apollo = { module = "com.apollographql.apollo3:apollo-runtime" }
 
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+
 [bundles]
 compose = ["compose-ui", "compose-tooling-preview", "compose-material"]
 compose-debug = ["compose-tooling", "compose-test-manifest"]
@@ -42,3 +46,4 @@ android-application = { id = "com.android.application", version.ref = "gradleplu
 android-library = { id = "com.android.library", version.ref = "gradleplugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 apollo-graphql = { id = "com.apollographql.apollo3", version.ref = "apollo" }
+hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
