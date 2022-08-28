@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Showcase"
 include ':app'
+include ':navigation-ui'
+include ':location-feature'
+include ':episode-feature'
+include ':character-feature'

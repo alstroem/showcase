@@ -54,9 +54,16 @@ apollo {
 }
 
 dependencies {
+    implementation project(":navigation-ui")
+
+    implementation project(":character-feature")
+    implementation project(":episode-feature")
+    implementation project(":location-feature")
+
+    implementation libs.android.activity
     implementation libs.android.core
     implementation libs.android.lifecycle
-    implementation libs.android.activity
+    implementation libs.android.navigation
 
     implementation libs.bundles.compose
     debugImplementation libs.bundles.compose.debug
@@ -65,10 +72,11 @@ dependencies {
     implementation libs.apollo
 
     implementation libs.hilt.android
+    implementation libs.hilt.navigation
     kapt libs.hilt.compiler
 
     testImplementation libs.junit
 
-    androidTestImplementation libs.android.junit
     androidTestImplementation libs.android.espresso
+    androidTestImplementation libs.android.junit
 }
