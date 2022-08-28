@@ -1,0 +1,16 @@
+query LocationList($page: Int) {
+  locations(page: $page) {
+    info @nonnull {
+      prev
+      pages
+      next
+      count
+    }
+    results @nonnull {
+      dimension
+      id
+      name
+      type
+    }
+  }
+}

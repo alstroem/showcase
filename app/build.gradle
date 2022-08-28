@@ -2,7 +2,6 @@ plugins {
     alias libs.plugins.android.application
     alias libs.plugins.kotlin.android
     id 'kotlin-kapt'
-    alias libs.plugins.apollo.graphql
     alias libs.plugins.hilt.gradle
 }
 
@@ -49,16 +48,16 @@ android {
     }
 }
 
-apollo {
-    packageName.set("dk.alstroem.rocketreserver")
-}
-
 dependencies {
     implementation project(":navigation-ui")
 
     implementation project(":character-feature")
     implementation project(":episode-feature")
     implementation project(":location-feature")
+
+    implementation project(":location-data")
+
+    implementation project(":network-lib")
 
     implementation libs.android.activity
     implementation libs.android.core
@@ -69,11 +68,11 @@ dependencies {
     debugImplementation libs.bundles.compose.debug
     androidTestImplementation libs.compose.test.junit
 
-    implementation libs.apollo
-
     implementation libs.hilt.android
     implementation libs.hilt.navigation
     kapt libs.hilt.compiler
+
+    implementation libs.apollo
 
     testImplementation libs.junit
 

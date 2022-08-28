@@ -1,10 +1,11 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.apollo.graphql
 }
 
 android {
-    namespace 'dk.alstroem.location_ui'
+    namespace 'dk.alstroem.network_lib'
     compileSdk 33
 
     defaultConfig {
@@ -26,24 +27,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
-    }
+}
+
+apollo {
+    packageName.set("dk.alstroem.rocketreserver")
+    generateApolloMetadata.set(true)
 }
 
 dependencies {
     implementation libs.android.core
     implementation libs.android.lifecycle
-    implementation libs.android.navigation
 
-    implementation libs.bundles.compose
-    debugImplementation libs.bundles.compose.debug
-
-    testImplementation libs.junit
-
-    androidTestImplementation libs.android.junit
-    androidTestImplementation libs.android.espresso
+    implementation libs.apollo
 }

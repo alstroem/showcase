@@ -36,7 +36,7 @@ compose-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", versi
 
 junit = { module = "junit:junit", version.ref = "junit" }
 
-apollo = { module = "com.apollographql.apollo3:apollo-runtime" }
+apollo = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
 
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
