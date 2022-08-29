@@ -36,7 +36,6 @@ apollo {
 
 dependencies {
     implementation libs.android.core
-    implementation libs.android.lifecycle
 
     implementation libs.apollo
 }

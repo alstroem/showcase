@@ -36,7 +36,7 @@ android {
 
 dependencies {
     implementation libs.android.core
-    implementation libs.android.lifecycle
+    implementation libs.android.lifecycle.viewmodel
     implementation libs.android.navigation
 
     implementation libs.bundles.compose

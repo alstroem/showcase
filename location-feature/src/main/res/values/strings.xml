@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="location_name">Name: %1$s</string>
+    <string name="location_type">Type: %1$s</string>
+    <string name="location_dimension">Dimension: %1$s</string>
+</resources>

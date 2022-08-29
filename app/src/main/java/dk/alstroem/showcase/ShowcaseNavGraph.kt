@@ -2,6 +2,7 @@ package dk.alstroem.showcase
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -31,7 +32,7 @@ fun ShowcaseNavGraph(
         }
 
         composable(route = NavScreen.Locations.route) {
-            LocationsScreen()
+            LocationsScreen(viewModel = hiltViewModel())
         }
     }
 }

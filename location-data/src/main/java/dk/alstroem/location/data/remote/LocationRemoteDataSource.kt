@@ -5,9 +5,8 @@ import com.apollographql.apollo3.api.Optional
 import dk.alstroem.network_lib.Either
 import dk.alstroem.network_lib.safeQuery
 import dk.alstroem.rocketreserver.LocationListQuery
-import javax.inject.Inject
 
-class LocationRemoteDataSource @Inject constructor(
+class LocationRemoteDataSource(
     private val client: ApolloClient
 ) {
     suspend fun fetchLocationList(
