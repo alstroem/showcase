@@ -1,12 +1,10 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
-    id 'kotlin-kapt'
-    alias libs.plugins.hilt.gradle
 }
 
 android {
-    namespace 'dk.alstroem.character_feature'
+    namespace 'dk.alstroem.episode.data'
     compileSdk 33
 
     defaultConfig {
@@ -28,26 +26,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
-    }
 }
 
 dependencies {
+    implementation project(":network-lib")
+
     implementation libs.android.core
-    implementation libs.android.lifecycle.viewmodel
-    implementation libs.android.navigation
     implementation libs.android.paging
 
-    implementation libs.compose.paging
-    implementation libs.bundles.compose
-    debugImplementation libs.bundles.compose.debug
-
     implementation libs.hilt.android
-    kapt libs.hilt.compiler
+
+    implementation libs.apollo
 
     testImplementation libs.junit
 

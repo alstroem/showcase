@@ -1,0 +1,16 @@
+query EpisodeList($page: Int) {
+  episodes(page: $page) {
+    info @nonnull {
+      prev
+      pages
+      next
+      count
+    }
+    results @nonnull {
+      air_date
+      episode
+      id
+      name
+    }
+  }
+}

@@ -55,6 +55,7 @@ dependencies {
     implementation project(":episode-feature")
     implementation project(":location-feature")
 
+    implementation project(":episode-data")
     implementation project(":location-data")
 
     implementation project(":network-lib")
