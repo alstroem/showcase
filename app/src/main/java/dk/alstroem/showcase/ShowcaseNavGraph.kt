@@ -24,7 +24,10 @@ fun ShowcaseNavGraph(
         modifier = modifier
     ) {
         composable(route = NavScreen.Episodes.route) {
-            EpisodesScreen()
+            EpisodesScreen(
+                navController = navHostController,
+                viewModel = hiltViewModel()
+            )
         }
 
         composable(route = NavScreen.Characters.route) {

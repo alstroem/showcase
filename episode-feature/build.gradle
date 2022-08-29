@@ -1,6 +1,8 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    id 'kotlin-kapt'
+    alias libs.plugins.hilt.gradle
 }
 
 android {
@@ -35,12 +37,19 @@ android {
 }
 
 dependencies {
+    implementation project(":episode-data")
+
     implementation libs.android.core
     implementation libs.android.lifecycle.viewmodel
     implementation libs.android.navigation
+    implementation libs.android.paging
 
+    implementation libs.compose.paging
     implementation libs.bundles.compose
     debugImplementation libs.bundles.compose.debug
+
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
 
     testImplementation libs.junit
 
