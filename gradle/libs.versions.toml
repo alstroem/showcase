@@ -19,6 +19,8 @@ compose-paging = "1.0.0-alpha16"
 material = "1.0.0-beta01"
 navigation = "1.0.0"
 
+timber = "5.0.1"
+
 junit = "4.13.2"
 
 [libraries]
@@ -46,6 +48,8 @@ apollo = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "a
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation" }
+
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 [bundles]
 compose = ["compose-ui", "compose-tooling-preview", "compose-material"]

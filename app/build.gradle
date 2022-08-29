@@ -73,6 +73,7 @@ dependencies {
     kapt libs.hilt.compiler
 
     implementation libs.apollo
+    implementation libs.timber
 
     testImplementation libs.junit
 
