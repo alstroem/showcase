@@ -38,7 +38,9 @@ dependencies {
     implementation libs.android.core
     implementation libs.android.lifecycle
     implementation libs.android.navigation
+    implementation libs.android.paging
 
+    implementation libs.compose.paging
     implementation libs.bundles.compose
     debugImplementation libs.bundles.compose.debug
 

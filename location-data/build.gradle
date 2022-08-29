@@ -33,6 +33,7 @@ dependencies {
 
     implementation libs.android.core
     implementation libs.android.lifecycle
+    implementation libs.android.paging
 
     implementation libs.hilt.android
 

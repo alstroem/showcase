@@ -1,4 +1,4 @@
-package dk.alstroem.location.data
+package dk.alstroem.location.data.remote
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.api.Optional
