@@ -33,9 +33,9 @@ class MainActivity : ComponentActivity() {
                     NavigationBar {
                         val navBackStackEntry by navController.currentBackStackEntryAsState()
                         val currentDestination = navBackStackEntry?.destination
-                        navigationBarItem.forEach { screen ->
+                        navigationBarItem.forEach { (screen, icon) ->
                             NavigationBarItem(
-                                icon = { Icon(imageVector = screen.icon, contentDescription = null) },
+                                icon = { Icon(imageVector = icon, contentDescription = null) },
                                 label = { Text(text = screen.route) },
                                 selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                                 onClick = {
