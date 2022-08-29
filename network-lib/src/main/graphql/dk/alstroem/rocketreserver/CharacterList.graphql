@@ -1,0 +1,14 @@
+query CharacterList($page: Int) {
+  characters(page: $page) {
+    info @nonnull {
+      prev
+      pages
+      next
+      count
+    }
+    results @nonnull {
+      id
+      image
+    }
+  }
+}

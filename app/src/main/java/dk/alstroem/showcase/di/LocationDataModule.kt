@@ -16,7 +16,7 @@ object LocationDataModule {
 
     @Singleton
     @Provides
-    fun provideLocationRemoteDataSource(client: ApolloClient) = LocationRemoteDataSource(client)
+    fun providesLocationRemoteDataSource(client: ApolloClient) = LocationRemoteDataSource(client)
 
     @Provides
     @Singleton

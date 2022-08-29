@@ -16,7 +16,7 @@ object EpisodeDataModule {
 
     @Singleton
     @Provides
-    fun provideEpisodeRemoteDataSource(client: ApolloClient) = EpisodeRemoteDataSource(client)
+    fun providesEpisodeRemoteDataSource(client: ApolloClient) = EpisodeRemoteDataSource(client)
 
     @Singleton
     @Provides

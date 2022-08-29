@@ -1,0 +1,45 @@
+plugins {
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+}
+
+android {
+    namespace 'dk.alstroem.character.data'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":network-lib")
+
+    implementation libs.android.core
+    implementation libs.android.paging
+
+    implementation libs.hilt.android
+
+    implementation libs.apollo
+
+    testImplementation libs.junit
+
+    androidTestImplementation libs.android.junit
+    androidTestImplementation libs.android.espresso
+}
