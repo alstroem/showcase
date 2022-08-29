@@ -6,6 +6,5 @@ data class EpisodeCharacter(
     val image: String,
     val gender: String,
     val species: String,
-    val status: String,
-    val type: String
+    val status: String
 )

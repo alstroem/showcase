@@ -37,7 +37,11 @@ android {
 }
 
 dependencies {
+    implementation project(":navigation-ui")
+
     implementation project(":episode-data")
+
+    implementation project(":network-lib")
 
     implementation libs.android.core
     implementation libs.android.lifecycle.viewmodel
@@ -50,6 +54,9 @@ dependencies {
 
     implementation libs.hilt.android
     kapt libs.hilt.compiler
+
+    implementation libs.coil
+    implementation libs.timber
 
     testImplementation libs.junit
 

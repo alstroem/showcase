@@ -11,7 +11,6 @@ query EpisodeDetail($episodeId: ID!) {
       name
       species
       status
-      type
     }
   }
 }

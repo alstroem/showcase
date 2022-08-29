@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import dk.alstroem.episode.domain.model.Episode
+import dk.alstroem.navigation_ui.NavScreen
 
 @Composable
 fun EpisodesScreen(
@@ -46,7 +47,7 @@ fun EpisodesScreen(
             ) { item ->
                 if (item != null) {
                     EpisodeItem(item = item) {
-
+                        navController.navigate(NavScreen.EpisodeDetail.createRoute(item.id))
                     }
                 } else {
                     // Placeholder
