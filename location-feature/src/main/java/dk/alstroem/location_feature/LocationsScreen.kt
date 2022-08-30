@@ -39,9 +39,7 @@ import dk.alstroem.location_ui.R
 import kotlinx.coroutines.launch
 
 @Composable
-fun LocationsScreen(
-    viewModel: LocationsViewModel
-) {
+fun LocationsScreen(viewModel: LocationsViewModel) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomEnd) {
         val listState = rememberLazyListState()
         val locationItems = viewModel.locationsFlow.collectAsLazyPagingItems()

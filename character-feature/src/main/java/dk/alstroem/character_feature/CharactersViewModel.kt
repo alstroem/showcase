@@ -1,4 +1,4 @@
-package dk.alstroem.location_feature
+package dk.alstroem.character_feature
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,17 +6,16 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dk.alstroem.location.domain.GetLocationPagingSourceUseCase
+import dk.alstroem.character.domain.GetCharacterPagingSourceUseCase
 import javax.inject.Inject
 
 @HiltViewModel
-class LocationsViewModel @Inject constructor(
-    getLocationPagingSource: GetLocationPagingSourceUseCase
+class CharactersViewModel @Inject constructor(
+    getCharacterPagingSource: GetCharacterPagingSourceUseCase
 ): ViewModel() {
-
-    val locationsFlow = Pager(
+    val charactersFlow = Pager(
         PagingConfig(pageSize = 20)
     ) {
-        getLocationPagingSource()
+        getCharacterPagingSource()
     }.flow.cachedIn(viewModelScope)
 }

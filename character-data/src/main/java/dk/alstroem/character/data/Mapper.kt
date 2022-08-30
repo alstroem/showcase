@@ -10,6 +10,7 @@ internal fun CharacterListQuery.Characters.asDomain(): List<CharacterData> {
 internal fun CharacterListQuery.Result.asDomain(): CharacterData {
     return CharacterData(
         id = id ?: "",
-        image = image ?: ""
+        image = image ?: "",
+        name = name ?: ""
     )
 }

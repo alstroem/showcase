@@ -30,7 +30,7 @@ fun ShowcaseNavGraph(
         episodeGraph(navHostController)
 
         composable(route = NavScreen.Characters.route) {
-            CharactersScreen()
+            CharactersScreen(viewModel = hiltViewModel())
         }
 
         composable(route = NavScreen.Locations.route) {
