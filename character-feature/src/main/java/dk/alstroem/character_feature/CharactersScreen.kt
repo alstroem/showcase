@@ -60,7 +60,7 @@ fun CharacterCard(
 
             Text(
                 text = data.name,
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(12.dp)
             )

@@ -58,7 +58,7 @@ fun LocationsScreen(viewModel: LocationsViewModel) {
         val composableScope = rememberCoroutineScope()
 
         AnimatedVisibility(visible = showButton) {
-            ScrollToTopButton(modifier = Modifier.padding(24.dp)) {
+            ScrollToTopButton(modifier = Modifier.padding(18.dp)) {
                 composableScope.launch {
                     listState.scrollToItem(index = 0)
                 }
