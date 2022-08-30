@@ -12,7 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LocationsViewModel @Inject constructor(
     getLocationPagingSource: GetLocationPagingSourceUseCase
-): ViewModel() {
+) : ViewModel() {
 
     val locationsFlow = Pager(
         PagingConfig(pageSize = 20)

@@ -5,7 +5,7 @@ import dk.alstroem.character.domain.CharacterRepository
 
 class CharacterRepositoryImpl(
     private val remoteDataSource: CharacterRemoteDataSource
-): CharacterRepository {
+) : CharacterRepository {
     override fun getCharacterPagingSource(): CharacterPagingSource {
         return CharacterPagingSource(remoteDataSource)
     }

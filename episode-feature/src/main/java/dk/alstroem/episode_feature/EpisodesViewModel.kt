@@ -12,7 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class EpisodesViewModel @Inject constructor(
     private val getEpisodePagingSource: GetEpisodePagingSourceUseCase
-): ViewModel() {
+) : ViewModel() {
 
     val episodesFLow = Pager(
         PagingConfig(pageSize = 20)

@@ -33,7 +33,7 @@ internal fun EpisodeDetailQuery.Character.asDomain(): EpisodeCharacter {
         id = id ?: "",
         name = name ?: "",
         image = image ?: "",
-         gender = gender ?: "",
+        gender = gender ?: "",
         species = species ?: "",
         status = status ?: ""
     )

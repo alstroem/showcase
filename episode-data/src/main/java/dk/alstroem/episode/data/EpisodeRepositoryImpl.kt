@@ -7,7 +7,7 @@ import dk.alstroem.network_lib.Either
 
 class EpisodeRepositoryImpl(
     private val remoteDataSource: EpisodeRemoteDataSource
-): EpisodeRepository {
+) : EpisodeRepository {
     override fun getEpisodePagingSource(): EpisodePagingSource {
         return EpisodePagingSource(remoteDataSource)
     }

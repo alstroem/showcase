@@ -5,7 +5,7 @@ import dk.alstroem.location.domain.LocationRepository
 
 class LocationRepositoryImpl(
     private val remoteDataSource: LocationRemoteDataSource
-): LocationRepository {
+) : LocationRepository {
     override fun getLocationPagingSource(): LocationPagingSource {
         return LocationPagingSource(remoteDataSource)
     }

@@ -85,7 +85,7 @@ fun CharacterItem(
                 contentDescription = null,
                 modifier = Modifier.size(160.dp)
             )
-            
+
             Column(modifier = Modifier.padding(12.dp)) {
                 CharacterInfo(value = data.name)
                 Spacer(modifier = Modifier.height(8.dp))

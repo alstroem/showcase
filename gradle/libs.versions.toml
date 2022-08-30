@@ -1,10 +1,4 @@
 [versions]
-gradleplugin = "7.3.0-rc01"
-kotlin = "1.7.10"
-apollo = "3.5.0"
-hilt = "2.43.2"
-hilt-navigation = "1.0.0"
-
 android-activity = "1.5.1"
 android-core = "1.8.0"
 android-espresso = "3.4.0"
@@ -19,8 +13,14 @@ compose-paging = "1.0.0-alpha16"
 material = "1.0.0-beta01"
 navigation = "1.0.0"
 
+apollo = "3.5.0"
 coil = "2.2.0"
+gradleplugin = "7.3.0-rc01"
+hilt = "2.43.2"
+hilt-navigation = "1.0.0"
 junit = "4.13.2"
+kotlin = "1.7.10"
+ktlint = "11.0.0"
 timber = "5.0.1"
 
 [libraries]
@@ -60,3 +60,4 @@ android-library = { id = "com.android.library", version.ref = "gradleplugin" }
 apollo-graphql = { id = "com.apollographql.apollo3", version.ref = "apollo" }
 hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class EpisodeDetailViewModel @Inject constructor(
     private val getEpisode: GetEpisodeUseCase
-): ViewModel() {
+) : ViewModel() {
 
     var uiState by mutableStateOf(EpisodeDetailUiState())
         private set

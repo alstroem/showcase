@@ -13,4 +13,3 @@ suspend fun <T> safeQuery(
         Either.Error(exception)
     }
 }
-

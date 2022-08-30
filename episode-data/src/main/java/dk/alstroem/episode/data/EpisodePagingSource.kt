@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class EpisodePagingSource @Inject constructor(
     private val remoteDataSource: EpisodeRemoteDataSource
-): PagingSource<Int, Episode>() {
+) : PagingSource<Int, Episode>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Episode> {
         val nextPage = params.key ?: 1
         return when (val result = remoteDataSource.fetchEpisodeList(nextPage)) {
