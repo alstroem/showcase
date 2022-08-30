@@ -9,9 +9,9 @@ internal fun LocationListQuery.Locations.asDomain(): List<Location> {
 
 internal fun LocationListQuery.Result.asDomain(): Location {
     return Location(
-        id ?: "",
-        name ?: "",
-        dimension ?: "",
-        type ?: ""
+        id = id ?: "",
+        name = name ?: "",
+        dimension = dimension ?: "",
+        type = type ?: ""
     )
 }

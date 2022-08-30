@@ -3,7 +3,7 @@ package dk.alstroem.network_lib
 import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
- * A generic class that holds a value with its loading status.
+ * A generic class that holds a value with its status.
  * @param <T>
  */
 sealed class Either<out R> {
