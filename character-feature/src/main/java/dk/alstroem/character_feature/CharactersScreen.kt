@@ -1,7 +1,6 @@
 package dk.alstroem.character_feature
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
@@ -19,25 +18,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.LazyPagingItems
 import coil.compose.AsyncImage
 import dk.alstroem.character.domain.model.CharacterData
 
 @Composable
-fun CharactersScreen(viewModel: CharactersViewModel) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        val characterItems = viewModel.charactersFlow.collectAsLazyPagingItems()
-
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            contentPadding = PaddingValues(24.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            items(characterItems.itemCount) { index ->
-                characterItems[index]?.let {
-                    CharacterCard(data = it)
-                }
+internal fun CharactersScreen(characterItems: LazyPagingItems<CharacterData>) {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        contentPadding = PaddingValues(24.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        modifier = Modifier.fillMaxSize()
+    ) {
+        items(characterItems.itemCount) { index ->
+            characterItems[index]?.let {
+                CharacterCard(data = it)
             }
         }
     }

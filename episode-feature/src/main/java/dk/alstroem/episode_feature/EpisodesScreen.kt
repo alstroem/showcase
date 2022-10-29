@@ -24,20 +24,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import dk.alstroem.episode.domain.model.Episode
-import dk.alstroem.navigation_ui.NavScreen
 
 @Composable
 fun EpisodesScreen(
-    navController: NavController,
-    viewModel: EpisodesViewModel
+    episodeItems: LazyPagingItems<Episode>,
+    onNavigateToEpisodeDetail: (episodeId: String) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
-        val episodeItems = viewModel.episodesFLow.collectAsLazyPagingItems()
-
         LazyColumn(
             contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -48,7 +44,7 @@ fun EpisodesScreen(
             ) { item ->
                 if (item != null) {
                     EpisodeItem(item = item) {
-                        navController.navigate(NavScreen.EpisodeDetail.createRoute(item.id))
+                        onNavigateToEpisodeDetail(item.id)
                     }
                 } else {
                     // Placeholder

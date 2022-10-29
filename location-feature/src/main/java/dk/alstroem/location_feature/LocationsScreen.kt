@@ -32,17 +32,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import dk.alstroem.location.domain.model.Location
 import dk.alstroem.location_ui.R
 import kotlinx.coroutines.launch
 
 @Composable
-fun LocationsScreen(viewModel: LocationsViewModel) {
+fun LocationsScreen(locationItems: LazyPagingItems<Location>) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomEnd) {
         val listState = rememberLazyListState()
-        val locationItems = viewModel.locationsFlow.collectAsLazyPagingItems()
 
         LocationList(
             listState = listState,

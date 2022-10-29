@@ -50,8 +50,6 @@ android {
 }
 
 dependencies {
-    implementation project(":navigation-ui")
-
     implementation project(":character-feature")
     implementation project(":episode-feature")
     implementation project(":location-feature")

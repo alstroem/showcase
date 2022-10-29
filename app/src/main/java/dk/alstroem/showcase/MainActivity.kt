@@ -4,6 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -19,7 +23,9 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import dk.alstroem.navigation_ui.navigationBarItem
+import dk.alstroem.character_feature.CharacterRoutePattern
+import dk.alstroem.episode_feature.navigation.EpisodeGraphRoutePattern
+import dk.alstroem.location_feature.LocationRoutePattern
 import dk.alstroem.showcase.ui.theme.ShowcaseTheme
 
 @AndroidEntryPoint
@@ -48,13 +54,19 @@ fun ShowcaseNavigationBar(
     NavigationBar {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
+        val navigationBarItem = mapOf(
+            EpisodeGraphRoutePattern to Icons.Filled.Home,
+            CharacterRoutePattern to Icons.Filled.Face,
+            LocationRoutePattern to Icons.Filled.LocationOn
+        )
+
         navigationBarItem.forEach { (screen, icon) ->
             NavigationBarItem(
                 icon = { Icon(imageVector = icon, contentDescription = null) },
-                label = { Text(text = screen.route) },
-                selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                label = { Text(text = screen) },
+                selected = currentDestination?.hierarchy?.any { it.route == screen } == true,
                 onClick = {
-                    navController.navigate(screen.route) {
+                    navController.navigate(screen) {
                         popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true
                         }

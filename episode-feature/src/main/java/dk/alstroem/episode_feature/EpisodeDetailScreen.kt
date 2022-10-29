@@ -26,17 +26,13 @@ import coil.compose.AsyncImage
 import dk.alstroem.episode.domain.model.Episode
 import dk.alstroem.episode.domain.model.EpisodeCharacter
 import dk.alstroem.episode_ui.R
+import kotlinx.coroutines.flow.flow
 
 @Composable
 fun EpisodeDetailScreen(
-    viewModel: EpisodeDetailViewModel,
-    episodeId: String
+    uiState: EpisodeDetailUiState
 ) {
-    viewModel.fetchEpisode(episodeId)
-
     Box(modifier = Modifier.fillMaxSize()) {
-        val uiState = viewModel.uiState
-
         LazyColumn(
             contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)

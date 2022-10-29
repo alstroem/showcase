@@ -38,8 +38,6 @@ android {
 }
 
 dependencies {
-    implementation project(":navigation-ui")
-
     implementation project(":episode-data")
 
     implementation project(":network-lib")
@@ -54,6 +52,7 @@ dependencies {
     debugImplementation libs.bundles.compose.debug
 
     implementation libs.hilt.android
+    implementation libs.hilt.navigation
     kapt libs.hilt.compiler
 
     implementation libs.coil
