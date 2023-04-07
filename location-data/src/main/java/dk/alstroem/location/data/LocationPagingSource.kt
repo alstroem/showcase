@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import dk.alstroem.location.data.remote.LocationRemoteDataSource
 import dk.alstroem.location.domain.model.Location
-import dk.alstroem.network_lib.Either
 import javax.inject.Inject
 
 class LocationPagingSource @Inject constructor(
@@ -13,14 +12,16 @@ class LocationPagingSource @Inject constructor(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Location> {
         val nextPage = params.key ?: 1
-        return when (val result = remoteDataSource.fetchLocationList(nextPage)) {
-            is Either.Error -> LoadResult.Error(result.exception)
-            is Either.Success -> LoadResult.Page(
-                data = result.data.asDomain(),
-                prevKey = null,
-                nextKey = result.data.info.next
-            )
-        }
+        return remoteDataSource.fetchLocationList(nextPage).fold(
+            onSuccess = {
+                LoadResult.Page(
+                    data = it.asDomain(),
+                    prevKey = null,
+                    nextKey = it.info.next
+                )
+            },
+            onFailure = { LoadResult.Error(it) }
+        )
     }
 
     override fun getRefreshKey(state: PagingState<Int, Location>): Int? {

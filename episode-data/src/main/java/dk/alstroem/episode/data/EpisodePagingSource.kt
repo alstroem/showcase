@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import dk.alstroem.episode.data.remote.EpisodeRemoteDataSource
 import dk.alstroem.episode.domain.model.Episode
-import dk.alstroem.network_lib.Either
 import javax.inject.Inject
 
 class EpisodePagingSource @Inject constructor(
@@ -12,14 +11,16 @@ class EpisodePagingSource @Inject constructor(
 ) : PagingSource<Int, Episode>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Episode> {
         val nextPage = params.key ?: 1
-        return when (val result = remoteDataSource.fetchEpisodeList(nextPage)) {
-            is Either.Error -> LoadResult.Error(result.exception)
-            is Either.Success -> LoadResult.Page(
-                data = result.data.asDomain(),
-                prevKey = null,
-                nextKey = result.data.info.next
-            )
-        }
+        return remoteDataSource.fetchEpisodeList(nextPage).fold(
+            onSuccess = {
+                LoadResult.Page(
+                    data = it.asDomain(),
+                    prevKey = null,
+                    nextKey = it.info.next
+                )
+            },
+            onFailure = { LoadResult.Error(it) }
+        )
     }
 
     override fun getRefreshKey(state: PagingState<Int, Episode>): Int? {

@@ -4,12 +4,12 @@ import java.io.IOException
 
 suspend fun <T> safeQuery(
     body: suspend () -> T?
-): Either<T> {
+): Result<T> {
     return try {
         body()?.let {
-            Either.Success(it)
-        } ?: Either.Error(IOException("The server did not return any data"))
+            Result.success(it)
+        } ?: Result.failure(IOException("The server did not return any data"))
     } catch (exception: Exception) {
-        Either.Error(exception)
+        Result.failure(exception)
     }
 }
