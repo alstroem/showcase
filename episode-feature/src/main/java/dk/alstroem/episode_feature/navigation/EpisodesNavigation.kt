@@ -13,6 +13,10 @@ fun NavGraphBuilder.episodesScreen(onNavigateToEpisodeDetail: (episodeId: String
     composable(EpisodesRoutePattern) {
         val viewModel: EpisodesViewModel = hiltViewModel()
         val episodeItems = viewModel.episodesFLow.collectAsLazyPagingItems()
-        EpisodesScreen(episodeItems = episodeItems, onNavigateToEpisodeDetail = onNavigateToEpisodeDetail)
+
+        EpisodesScreen(
+            episodeItems = episodeItems,
+            onNavigateToEpisodeDetail = onNavigateToEpisodeDetail
+        )
     }
 }
